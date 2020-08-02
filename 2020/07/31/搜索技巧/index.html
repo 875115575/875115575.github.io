@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.875115575.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}}};
+  </script>
+
+  <meta name="description" content="在观看 B 站一个关于程序员搜索技巧的视频后，感觉收获颇多，特地将视频知识点总结下来，本文主要记录了我对视频的理解，推荐看原视频。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜索技巧">
+<meta property="og:url" content="https://www.875115575.github.io/2020/07/31/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="杨宁的博客">
+<meta property="og:description" content="在观看 B 站一个关于程序员搜索技巧的视频后，感觉收获颇多，特地将视频知识点总结下来，本文主要记录了我对视频的理解，推荐看原视频。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-yn.oss-cn-beijing.aliyuncs.com/Google%E4%B8%8E%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%20Java%20Map2020-08-02-02-10-22.png">
+<meta property="og:image" content="https://blog-yn.oss-cn-beijing.aliyuncs.com/%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B2020-08-02-14-52-31.png">
+<meta property="og:image" content="https://blog-yn.oss-cn-beijing.aliyuncs.com/GitHub%E4%BB%A3%E7%A0%81Blame%E9%A1%B5%E9%9D%A22020-08-02-21-15-09.png">
+<meta property="article:published_time" content="2020-07-31T04:13:45.000Z">
+<meta property="article:modified_time" content="2020-08-02T16:45:19.011Z">
+<meta property="article:author" content="杨宁">
+<meta property="article:tag" content="杂项">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-yn.oss-cn-beijing.aliyuncs.com/Google%E4%B8%8E%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%20Java%20Map2020-08-02-02-10-22.png">
+
+<link rel="canonical" href="https://www.875115575.github.io/2020/07/31/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>搜索技巧 | 杨宁的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">杨宁的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索引擎推荐"><span class="nav-number">1.</span> <span class="nav-text">搜索引擎推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">2.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提取关键词"><span class="nav-number">2.1.</span> <span class="nav-text">提取关键词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索页面，查找线索"><span class="nav-number">2.2.</span> <span class="nav-text">搜索页面，查找线索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学到的小技巧"><span class="nav-number">2.3.</span> <span class="nav-text">学到的小技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#询问人"><span class="nav-number">3.</span> <span class="nav-text">询问人</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题的提问"><span class="nav-number">3.1.</span> <span class="nav-text">问题的提问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重现问题"><span class="nav-number">3.2.</span> <span class="nav-text">重现问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">杨宁</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.875115575.github.io/2020/07/31/%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="杨宁">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨宁的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搜索技巧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-31 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-31T00:00:00+08:00">2020-07-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-03 00:00:00" itemprop="dateModified" datetime="2020-08-03T00:00:00+08:00">2020-08-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9D%82%E9%A1%B9/" itemprop="url" rel="index"><span itemprop="name">杂项</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">在观看 B 站一个关于程序员搜索技巧的视频后，感觉收获颇多，特地将视频知识点总结下来，本文主要记录了我对视频的理解，推荐看原视频。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在观看 B 站一个关于<a href="https://www.bilibili.com/video/BV1Nh411Z7wH" target="_blank" rel="noopener">程序员搜索技巧</a>的视频后，感觉收获颇多，特地将视频知识点总结下来，本文主要记录了我对视频的理解，推荐看原视频。</p>
+<ul>
+<li><a href="#搜索引擎推荐">搜索引擎推荐</a></li>
+<li><a href="#搜索">搜索</a><ul>
+<li><a href="#提取关键词">提取关键词</a></li>
+<li><a href="#搜索页面查找线索">搜索页面，查找线索</a></li>
+<li><a href="#学到的小技巧">学到的小技巧</a></li>
+</ul>
+</li>
+<li><a href="#询问人">询问人</a><ul>
+<li><a href="#问题的提问">问题的提问</a></li>
+<li><a href="#重现问题">重现问题</a></li>
+</ul>
+</li>
+<li><a href="#结尾">结尾</a></li>
+</ul>
+<h2 id="搜索引擎推荐"><a href="#搜索引擎推荐" class="headerlink" title="搜索引擎推荐"></a>搜索引擎推荐</h2><p>首推 Google + 英文，其次是 Google + 中文。</p>
+<p>使用 Google 搜索应该是一个程序员的基础能力，如果你不知道怎么翻墙可以试试 Just My Socks，我使用的就是这个，具体怎么使用可以自行搜索，有很多文章介绍。  </p>
+<p>Google 搜索采用英文搜索应该很好理解，虽然近些年来我国的互联网发展很快，也参与了很多开源项目，但依然有许多的好的项目都是外国产生的，如果查看文档或问题的解决方法都是需要英文来搜索。    </p>
+<p>对于中文来说，用 Google 与用百度是两种结果，百度的更多的是 CSDN 的，但 CSDN 有很多都是倒了不知道多少手的文章，用 Google 返回的多少官方文档和一手博客。  </p>
+<p><img src="https://blog-yn.oss-cn-beijing.aliyuncs.com/Google%E4%B8%8E%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%20Java%20Map2020-08-02-02-10-22.png" alt="Google与百度搜索 Java Map 对比"></p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p><img src="https://blog-yn.oss-cn-beijing.aliyuncs.com/%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B2020-08-02-14-52-31.png" alt="搜索流程"></p>
+<h3 id="提取关键词"><a href="#提取关键词" class="headerlink" title="提取关键词"></a>提取关键词</h3><p>提取关键词首先明确问题是什么？</p>
+<p>将问题完整的用语言描述出来，尽可能将问题描述的准确，可以用多个词将问题限制在一个小的范围，例如 java、map、存储结构等词语就将问题范围缩小了很多。</p>
+<p>其次问题应该体现问题的共性而非特性，例如在进行数据库操作时，操作报错通常会带有数据库表名或字段名，在搜索时应将表名或字段名去除查询，更容易找到符合的答案。</p>
+<p>在描述完问题后就应该将问题进行加工，去除多余字词，比如‘的’、‘怎么’、‘为什么’等字词，提取关键词并以空格分开，如果需要还可以使用搜索符号优化搜索，搜索符号包括：‘-’、‘“”’、‘site:’、‘filetype:’等，更多符号可以查看<a href="https://support.google.com/websearch/answer/2466433?hl=zh-Hans" target="_blank" rel="noopener">优化网页搜索结果 - Google 搜索帮助</a>。</p>
+<p>‘site:’ 是搜索特定网址，推荐编程网站：StackoverFlow 和 GitHub，‘filetype:’是搜索特定文档，例如 pdf、doc等文件类型。</p>
+<h3 id="搜索页面，查找线索"><a href="#搜索页面，查找线索" class="headerlink" title="搜索页面，查找线索"></a>搜索页面，查找线索</h3><p>在提取完关键词后就可以进行搜索，如果第一次搜索就能找到想要的的结果是最好的，但大部分情况是需要多次搜索。</p>
+<p>搜索页面如果没有任何想要结果，而且也没有帮助下次搜索的线索，可以确定是关键词错误，这时需要更换关键词重新搜索。</p>
+<p>搜索页面一般与结果具有关联性，有帮助下次搜索的线索，根据线索修改关键词再次搜索。</p>
+<p>搜索就是不断的重复上述的步骤，直到找到想要的结果。</p>
+<h3 id="学到的小技巧"><a href="#学到的小技巧" class="headerlink" title="学到的小技巧"></a>学到的小技巧</h3><p>在视频中学到一些关于 GitHub 的一些小技巧，在此记录一下，在代码页点击 Blame 按钮可以查看代码都是什么人、什么时候提交的，点击对应 Commit 可以查看为什么提交，以及提交是为了解决什么问题。</p>
+<p><img src="https://blog-yn.oss-cn-beijing.aliyuncs.com/GitHub%E4%BB%A3%E7%A0%81Blame%E9%A1%B5%E9%9D%A22020-08-02-21-15-09.png" alt="GitHub代码Blame页面2020-08-02-21-15-09"></p>
+<h2 id="询问人"><a href="#询问人" class="headerlink" title="询问人"></a>询问人</h2><h3 id="问题的提问"><a href="#问题的提问" class="headerlink" title="问题的提问"></a>问题的提问</h3><p>最后可能因为各种原因不得不找人询问，而好的提问可以提高提问的成功率。</p>
+<p>首先提问前站在对方的角度思考一下，如果是你来解决这个问题都需要什么信息，提供越多有用的信息，对方就会耗费越少的精力去解决，让对方耗费越少的精力问题越容易解决。</p>
+<p>对于这方面我有很深的经历，曾经我呆过的一个公司，客服反馈客户意见时，大部分情况下都是发个图就完事了，经常需要我们开发人员追着询问其它需要信息，后来开发部门写了一个需求反馈表，当需求表填完后才会解决，问题就好多了。</p>
+<p>提供信息的时候需要提供的是有用的信息，例如电脑的环境、开发环境、使用的编辑器、问题背景等，这些都可能是影响因素，如果你不知道是否是影响因素就都发给提问人。</p>
+<p>在提供信息后，还要描述一下问题是什么，怎么有问题，问题的结果与你预想的结果有什么不符的，不要用‘不好使’、‘不一样’等模糊的描述性词语。</p>
+<h3 id="重现问题"><a href="#重现问题" class="headerlink" title="重现问题"></a>重现问题</h3><p>这部分强烈推荐看视频<a href="https://www.bilibili.com/video/BV1Nh411Z7wH?p=3" target="_blank" rel="noopener">提问的技巧</a>部分，看视频 UP 主是怎么提供问题的例子，使问题重现。</p>
+<p>UP 主上传了一个测试项目到 GitHub，只需将项目 Clone 下到本地就可以运行重现问题。</p>
+<p>测试项目应该尽可能少的依赖特定环境，不能假定对方有你的环境。</p>
+<p>数据的插入等其它初始化操作尽可能用脚本实现，减少对方耗费的精力。</p>
+<p>提问人最主要的就是减少对方耗费的精力，耗费的精力越少越容易获得答案</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>再次说明本文是本人在看完<a href="https://www.bilibili.com/video/BV1Nh411Z7wH" target="_blank" rel="noopener">程序员搜索技巧</a>后，本人对视频的总结和理解，如有疏漏，望请原谅，日后如有新的理解将会再次编辑。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%82%E9%A1%B9/" rel="tag"># 杂项</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/22/List%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="prev" title="List源码分析">
+      <i class="fa fa-chevron-left"></i> List源码分析
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨宁</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
